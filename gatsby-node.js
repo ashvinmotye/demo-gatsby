@@ -14,7 +14,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      postsRemark: allMarkdownRemark {
+      postsRemark: allMarkdownRemark(filter: {frontmatter: {title: {ne: "Dummy Markdown Page"}}}) {
         edges {
           node {
             id
